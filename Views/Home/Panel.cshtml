@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Yönetici Paneli";
+}
+<div class="text-center">
+<br />
+<h1>@ViewData["Title"]</h1>
+<p>Navigasyon paneli aracılığı ile kullanıcıları, ürünleri ve işlemleri yönetebilirsiniz.</p>
+<br />
+<div class="btn-group-lg btn-group-vertical">
+    <a class="btn btn-secondary btn-outline-dark" asp-area="" asp-controller="Users" asp-action="All">Kullanıcılar</a>
+    <a class="btn btn-secondary btn-outline-dark" asp-area="" asp-controller="Books" asp-action="All">Kitaplar</a>
+    <a class="btn btn-secondary btn-outline-dark" asp-area="" asp-controller="Rents" asp-action="All">Kiralanan Kitaplar</a>
+</div>
+</div>

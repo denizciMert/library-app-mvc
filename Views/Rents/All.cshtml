@@ -1,0 +1,80 @@
+﻿@model IEnumerable<LibraryApp.Models.RentsViewModel>
+
+@{
+    ViewData["Title"] = "Kiralananlar";
+    Layout = "_Layout";
+}
+<br />
+<h1>Kiralananlar</h1>
+<br />
+<p>
+    <a asp-action="Create" class="btn btn-success">Kiralanan Girdisi Ekle</a> <a asp-area="" asp-controller="Home" asp-action="Panel" class="btn btn-primary">Geri Dön</a>
+</p>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.KiralananID)-->İşlem No.
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.KitapID)-->Kitap No.
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.KitapAdi)-->Kitap İsmi
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.KullaniciID)-->Kullanıcı No.
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.KullaniciAdi)-->Kullanıcı Adı
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.AlisTarihi)-->Kiralama Tarihi
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.IadeTarihi)-->Kira Bitiş Tarihi
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.GeriGetirmeTarihi)-->İade Edilen Tarih
+            </th>
+            <th>
+                İşlemler
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KiralananID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KitapID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KitapAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KullaniciID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KullaniciAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlisTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IadeTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeriGetirmeTarihi)
+            </td>
+            <td class="btn-group-vertical btn-group-sm">
+                <a asp-action="Details" asp-route-id="@item.KiralananID" class="btn btn-success">İncele</a>
+                <a asp-action="Edit" asp-route-id="@item.KiralananID" class="btn btn-warning">Güncelle</a>
+                <a asp-action="Delete" asp-route-id="@item.KiralananID" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

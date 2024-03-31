@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Öykümeşe</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LibraryApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black border-success border-bottom box-shadow bg-opacity-75 mb-3 ">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="HomePage"><img src="/images/logo.png" alt="Öykümeşe" class="logo"></img></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="HomePage">Öykümeşe</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex navbar-custom">
+                    <ul class="navbar-nav flex-grow-1 justify-content-center">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @if(User.IsInRole("Yönetici"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="HomePage">Ana Sayfa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Info">Kütüphanemiz</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Rentable">Kiralanabilirler</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Panel">Yönetici Paneli</a>
+                                </li>
+                            }
+                            else if (User.IsInRole("Kullanıcı"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="HomePage">Ana Sayfa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Info">Kütüphanemiz</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Rentable">Kiralanabilirler</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="MyBooks">Kitaplarım</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="HomePage">Ana Sayfa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Info">Kütüphanemiz</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Rentable">Kiralanabilirler</a>
+                                </li>
+                            }
+
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="HomePage">Ana Sayfa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Info">Kütüphanemiz</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Rentable">Kiralanabilirler</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="btn-group-sm">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="btn btn-success" asp-controller="Home" asp-action="Profile">Profil</a>
+                        <a class="btn btn-primary" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                        <a class="btn btn-success" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+                    }
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer border-success bg-black bg-opacity-75 text-muted">
+        <div class="container">
+            &copy; 2024 - Öykümeşe Kütüphanesi - 
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a> -
+            <a asp-area="" asp-controller="Home" asp-action="Connected">Bağlantı</a> - 
+            <a asp-area="" asp-controller="Home" asp-action="AboutMe">Hakkında</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

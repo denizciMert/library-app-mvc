@@ -1,0 +1,65 @@
+﻿@model LibraryApp.Models.UsersModel
+
+@{
+    ViewData["Title"] = "Kullanıcı Oluştur";
+    Layout = "_Layout";
+}
+<div class="text-center">
+<br />
+<h1>Kullanıcılar</h1>
+<br />
+<h4>Kullanıcı Oluştur</h4>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Adi" class="control-label">İsim</label>
+                <input asp-for="Adi" class="form-control" />
+                <span asp-validation-for="Adi" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Soyadi" class="control-label">Soyisim</label>
+                <input asp-for="Soyadi" class="form-control" />
+                <span asp-validation-for="Soyadi" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Eposta" class="control-label">E-posta</label>
+                <input asp-for="Eposta" class="form-control" />
+                <span asp-validation-for="Eposta" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="KullaniciAdi" class="control-label">Kullanıcı Adı</label>
+                <input asp-for="KullaniciAdi" class="form-control" />
+                <span asp-validation-for="KullaniciAdi" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Sifre" class="control-label">Şifre</label>
+                <input asp-for="Sifre" class="form-control" />
+                <span asp-validation-for="Sifre" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Rol" class="control-label">Rol</label>
+                <select asp-for="Rol" class="form-control" asp-items="ViewBag.roles"></select>
+                <span asp-validation-for="Rol" class="text-danger"></span>
+            </div>
+            <hr />
+            <p class="text-danger">@ViewBag.userCreationErrorMessage</p>
+            <br />
+            <div class="form-group btn-group-sm">
+                <input type="submit" value="Kullanıcı Oluştur" class="btn btn-success" /> <a asp-action="All" class="btn btn-primary">Geri Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

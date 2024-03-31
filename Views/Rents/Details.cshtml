@@ -1,0 +1,58 @@
+﻿@model LibraryApp.Models.RentsModel
+
+@{
+    ViewData["Title"] = "Kiralananlar";
+    Layout = "_Layout";
+}
+
+<br />
+<h1>Kiralananlar</h1>
+<br />
+<h4>Kiralama Detayları</h4>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.KiralananID)-->İşlem No.
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KiralananID)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.KitapID)-->Kitap No.
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KitapID)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.KullaniciID)-->Kullanıcı No.
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KullaniciID)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.AlisTarihi)-->Kiralama Tarihi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AlisTarihi)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.IadeTarihi)-->Kira Bitiş Tarihi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IadeTarihi)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.GeriGetirmeTarihi)-->İade Edilen Tarih
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GeriGetirmeTarihi)
+        </dd>
+    </dl>
+</div>
+<hr />
+<br />
+<div class="btn-group-sm">
+    <a asp-action="Edit" asp-route-id="@Model?.KiralananID" class="btn btn-warning">Güncelle</a>
+    <a asp-action="All" class="btn btn-primary">Geri Dön</a>
+</div>

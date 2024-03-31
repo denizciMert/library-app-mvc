@@ -1,0 +1,64 @@
+﻿@model LibraryApp.Models.UsersModel
+
+@{
+    ViewData["Title"] = "Kullanıcılar";
+    Layout = "_Layout";
+}
+<br />
+<h1>Kullanıcılar</h1>
+<br />
+<h4>Kullanıcı Detayları</h4>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.KullaniciID)-->Kullanıcı No.
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KullaniciID)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.Adi)-->İsim
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Adi)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.Soyadi)-->Soyisim
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Soyadi)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.Eposta)-->E-posta
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Eposta)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.KullaniciAdi)-->Kullanıcı Adı
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KullaniciAdi)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.Sifre)-->Şifre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sifre)
+        </dd>
+        </dt>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.Rol)-->Rol
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rol)
+        </dd>
+    </dl>
+</div>
+<hr />
+<br />
+<div class="btn-group-sm">
+    <a asp-action="Edit" asp-route-id="@Model?.KullaniciID" class="btn btn-warning">Güncelle</a> 
+    <a asp-action="All" class="btn btn-primary">Geri Dön</a>
+</div>

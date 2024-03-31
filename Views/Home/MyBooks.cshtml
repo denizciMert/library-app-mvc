@@ -1,0 +1,55 @@
+﻿@model IEnumerable<LibraryApp.Models.RentsViewModel>
+
+@{
+    ViewData["Title"] = "Kitaplarım";
+    Layout = "_Layout";
+}
+<div class="text-center">
+<br />
+<h1>Kitaplarım</h1>
+<br />
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.KitapAdi)-->Kitap İsmi
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.KullaniciAdi)-->Kullanıcı Adı
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.AlisTarihi)-->Kiralama Tarihi
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.IadeTarihi)-->Kira Bitiş Tarihi
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.GeriGetirmeTarihi)-->İade Edilen Tarih
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KitapAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KullaniciAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AlisTarihi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IadeTarihi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GeriGetirmeTarihi)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

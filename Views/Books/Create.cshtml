@@ -1,0 +1,69 @@
+﻿@model LibraryApp.Models.BooksModel
+
+@{
+    ViewData["Title"] = "Kitaplar";
+    Layout = "_Layout";
+}
+<div class="text-center">
+<br />
+<h1>Kitaplar</h1>
+<br />
+<h4>Kitap Girdisi Oluştur</h4>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Baslik" class="control-label">Kitap İsmi</label>
+                <input asp-for="Baslik" class="form-control" />
+                <span asp-validation-for="Baslik" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Yazar" class="control-label">Yazar</label>
+                <input asp-for="Yazar" class="form-control" />
+                <span asp-validation-for="Yazar" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="YayinYili" class="control-label">Yayın Yılı</label>
+                <input asp-for="YayinYili" class="form-control" />
+                <span asp-validation-for="YayinYili" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Tur" class="control-label">Tür</label>
+                <select asp-for="Tur" class="form-control" asp-items="ViewBag.genres"></select>
+                <span asp-validation-for="Tur" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="ISBN" class="control-label">ISBN No.</label>
+                <input asp-for="ISBN" class="form-control" />
+                <span asp-validation-for="ISBN" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="RafNumarasi" class="control-label">Raf No.</label>
+                <select asp-for="RafNumarasi" class="form-control" asp-items="ViewBag.shelfs"></select>
+                <span asp-validation-for="RafNumarasi" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Durum" class="control-label">Durum</label>
+                <select asp-for="Durum" class="form-control" asp-items="ViewBag.states"></select>
+                <span asp-validation-for="Durum" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group btn-group-sm">
+                <input type="submit" value="Kaydet" class="btn btn-success" /> <a asp-action="All" class="btn btn-primary">Geri Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

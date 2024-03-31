@@ -1,0 +1,72 @@
+﻿@model LibraryApp.Models.BooksModel
+
+@{
+    ViewData["Title"] = "Kitaplar";
+    Layout = "_Layout";
+}
+
+<br />
+<h1>Kitaplar</h1>
+<br />
+<h3>Kitap Kaydını Sil</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.KitapID)-->Kitap No.
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KitapID)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.Baslik)-->Kitap İsmi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.Yazar)-->Yazar
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yazar)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.YayinYili)-->Yayın Yılı
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.YayinYili)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.Tur)-->Tür
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tur)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.ISBN)-->ISBN No.
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.RafNumarasi)-->Raf No.
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RafNumarasi)
+        </dd>
+        <dt class = "col-sm-2">
+            <!--@Html.DisplayNameFor(model => model.Durum)-->Durum
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+    </dl>
+    <hr />
+    <br />
+    <h5>Bu kitabı silmek istediğinize emin misiniz?</h5>
+    <form asp-action="Delete" class="btn-group-sm">
+        <input type="hidden" asp-for="KitapID" />
+        <input type="submit" value="Kitabı Sil" class="btn btn-danger" /> 
+        <a asp-action="All" class="btn btn-primary">Geri Dön</a>
+    </form>
+</div>

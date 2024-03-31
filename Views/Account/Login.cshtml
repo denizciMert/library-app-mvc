@@ -1,0 +1,37 @@
+﻿@model LibraryApp.Models.LoginModel
+@{
+    ViewData["Title"] = "Giriş Yap";
+}
+<div class="text-center">
+<br />
+<h1>@ViewData["Title"]</h1>
+<br />
+<p>Giriş yapmak için aşağıdaki bilgileri doldurunuz.</p>
+<div class="row">
+    <div class="col-md-5">
+        <hr />
+        <form asp-controller="Account" asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdentityInfo" class="control-label">Kullanıcı Adı veya Eposta</label>
+                <input asp-for="IdentityInfo" class="form-control" />
+                <span asp-validation-for="IdentityInfo" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="PasswordInfo" class="control-label">Şifre</label>
+                <input asp-for="PasswordInfo" class="form-control" />
+                <span asp-validation-for="PasswordInfo" class="text-danger"></span>
+            </div>
+            <hr />
+            <br />
+            <div>
+                <label><p class="text-success">@ViewBag.isUserLoggedIn</p></label>
+            </div>
+            <div class="form-group btn-group-sm">
+                <input type="submit" value="Giriş Yap" class="btn btn-success" /> <a asp-controller="Home" asp-action="HomePage" class="btn btn-primary">Geri Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

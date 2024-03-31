@@ -1,0 +1,55 @@
+﻿@model IEnumerable<LibraryApp.Models.BooksModel>
+
+@{
+    ViewData["Title"] = "Kiralanabilir Kitaplar";
+    Layout = "_Layout";
+}
+<div class="text-center">
+<br />
+<h1>Kiralanabilir Kitaplar</h1>
+<br />
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.Baslik)-->Kitap İsmi
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.Yazar)-->Yazar
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.YayinYili)-->Yayın Yılı
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.ISBN)-->ISBN No.
+            </th>
+            <th>
+                <!--@Html.DisplayNameFor(model => model.RafNumarasi)-->Raf No.
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Baslik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Yazar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YayinYili)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RafNumarasi)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

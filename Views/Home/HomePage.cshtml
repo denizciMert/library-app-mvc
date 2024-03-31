@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+<div class="text-center">
+<br />
+<img src="/images/logo.png" alt="Öykümeşe logo" class="logo-img" />
+<br />
+<br />
+<h1>Öykümeşe Kütüphanesi</h1>
+<h3>Öykülerin Büyüleyici Doğası...</h3>
+<br />
+@if (User.Identity.IsAuthenticated)
+{
+    <h4>Hoşgeldin, @User.Identity.Name!</h4>
+}
+else
+{
+    <h4>Hoşgeldin, Misafir!</h4>
+}
+<br />
+<p>Bu sanal kütüphaneden, kütüphanemizde bulunan kitapları görüntüleyebilir ve henüz gelmeden istediğiniz kitabın hangisi olduğunu seçebilirsiniz ya da uygunluk durumunu görüntüleyenbilirsiniz.</p>
+<p>Ayrıca kütüphanemize oluşturacağınız kaydınızla birlikte kiraladığınız kitapların size verildiğini tarihleri, geri verilmesi beklenen tarihleri ve ayrıca kiraladığınız tüm kitapları görüntüleyebilirsiniz.</p>
+</div>
